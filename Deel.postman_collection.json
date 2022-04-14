@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "18b44ca5-2431-4eb3-ab3d-22497767fb10",
+		"name": "Deel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Contract By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "profile_id",
+						"value": "3",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/contracts/5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"contracts",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Contracts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "profile_id",
+						"value": "2",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/contracts",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"contracts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Unpaid Jobs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "profile_id",
+						"type": "text",
+						"value": "1"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/jobs/unpaid",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"jobs",
+						"unpaid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pay Job",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "profile_id",
+						"type": "text",
+						"value": "2"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/jobs/4/pay",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"jobs",
+						"4",
+						"pay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit amount",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "profile_id",
+						"type": "text",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 200\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/balances/deposit/4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"balances",
+						"deposit",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Best Professions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "profile_id",
+						"type": "text",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 200\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin/best-profession?start=\"2020-08-14\"&end=\"2020-08-17\"",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin",
+						"best-profession"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "\"2020-08-14\"",
+							"description": "Start date"
+						},
+						{
+							"key": "end",
+							"value": "\"2020-08-17\"",
+							"description": "End date"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Best Clients",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "profile_id",
+						"type": "text",
+						"value": "2"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 200\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin/best-clients?start=\"2020-08-14\"&end=\"2020-08-17\"&limit=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin",
+						"best-clients"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "\"2020-08-14\"",
+							"description": "Start date"
+						},
+						{
+							"key": "end",
+							"value": "\"2020-08-17\"",
+							"description": "End date"
+						},
+						{
+							"key": "limit",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3001"
+		}
+	]
+}
