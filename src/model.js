@@ -1,8 +1,11 @@
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'test' ? '.env.testing' : '.env'
+});
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: './database.sqlite3'
+  dialect: process.env.DIALECT,
+  storage: process.env.STORAGE
 });
 
 class Profile extends Sequelize.Model { }

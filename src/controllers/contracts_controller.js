@@ -33,7 +33,7 @@ const getAllNonTerminatedContracts = async (req, res) => {
     }
   });
 
-  if (!contract) return res.status(401).end();
+  if (contract.length === 0) return res.status(404).end();
   res.json(contract);
 };
 

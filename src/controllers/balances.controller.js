@@ -9,7 +9,6 @@ const depositAmmount = async (req, res) => {
   const { userId } = req.params;
   const { amount } = req.body;
 
-  console.log(userId)
   const jobs = await Job.findAll({
     include: {
       model: Contract,
@@ -36,7 +35,7 @@ const depositAmmount = async (req, res) => {
   const maxPermittedDeposit = job.totalAmount + (job.totalAmount * MAX_PERCENTAGE_AMOUNT_DEPOSIT);
 
   if (amount > maxPermittedDeposit) {
-    return res.status(401).json({ message: `You cannot deposit an amount greater than ${MAX_PERCENTAGE_AMOUNT_DEPOSIT * 100} of the sum of your job payable` });
+    return res.status(401).json({ message: `You cannot deposit an amount greater than ${MAX_PERCENTAGE_AMOUNT_DEPOSIT * 100}% of the sum of your job payable` });
   }
 
   const newClientBalance = amount + job.Contract.Client.balance;
